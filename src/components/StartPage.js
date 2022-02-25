@@ -1,11 +1,11 @@
 import React from 'react';
 
-const StartPage = () => {
+const StartPage = ({ startQuiz }) => {
   return (
     <div className='container--startpage'>
       <h2>Quizzical</h2>
       <p>Challenge yourself with these Trivia questions</p>
-      <button>Start Quiz</button>
+      <button onClick={startQuiz}>Start Quiz</button>
     </div>
   );
 };
