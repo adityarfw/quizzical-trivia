@@ -9,8 +9,6 @@ const App = () => {
     setQuizState(true);
   };
 
-  console.log(quizState);
-
   return (
     <main>
       {!quizState ? <StartPage startQuiz={startQuiz} /> : <QuizPage />}
