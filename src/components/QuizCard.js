@@ -1,15 +1,17 @@
 import React from 'react';
+import { nanoid } from 'nanoid';
 
 const QuizCard = () => {
   const [quizData, setQuizData] = React.useState([]);
-  console.log(quizData);
   React.useEffect(() => {
     fetch(
-      'https://opentdb.com/api.php?amount=10&category=21&difficulty=medium&type=multiple'
+      'https://opentdb.com/api.php?amount=10&category=27&difficulty=medium&type=multiple'
     )
       .then((res) => res.json())
       .then((data) => setQuizData(data.results));
   }, []);
+
+  const handleClick = (event) => {};
 
   // JSON data provides correct answer in arr[0]
   // Shuffling options
@@ -19,6 +21,12 @@ const QuizCard = () => {
 
   let optionsArray = [];
 
+  // Get quiz data and map through each quiz element
+  // Get correct answer and push to an array
+  // Get incorrect answers and push to the same array
+  // Shuffle the elements
+  // Display the elements below question
+  // Clear the temporary options array
   const quizQA = quizData.map(
     (quiz) => (
       (optionsArray.length = 0),
@@ -29,7 +37,9 @@ const QuizCard = () => {
           <h4 className='quizcard--question'>{quiz.question}</h4>
           <div className='answer--container'>
             {shuffleAnswers(optionsArray).map((ans) => (
-              <button className='answer--option'>{ans}</button>
+              <button onClick={handleClick} className='answer--option'>
+                {ans}
+              </button>
             ))}
           </div>
           <hr className='quiz--card--break' />

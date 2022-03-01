@@ -139,3 +139,8 @@ body {
   padding: 5px;
   margin-right: 15px;
 }
+
+.answer--clicked {
+  background-color: #293264;
+  color: #f5f7fb;
+}
